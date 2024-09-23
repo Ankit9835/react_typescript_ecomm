@@ -2,7 +2,8 @@ import CartButton from './CartButton';
 import LinksDropdown from './LinksDropdown';
 import Logo from './Logo';
 import ModeToggle from './ModeToggle';
-import NavLink from './NavLink';
+import NavLinks from './NavLinks';
+
 
 const Navbar = () => {
   return (
@@ -10,7 +11,7 @@ const Navbar = () => {
       <div className='align-element flex justify-between items-center'>
         <Logo />
         <LinksDropdown />
-        <NavLink />
+        <NavLinks />
         <div className='flex justify-center items-center gap-x-4'>
           <ModeToggle />
           <CartButton />
@@ -20,3 +21,5 @@ const Navbar = () => {
   );
 };
 export default Navbar;
+
+
