@@ -12,7 +12,7 @@ const ProductList = () => {
         return (
           <Link key={product.id} to={`/products/${product.id}`}>
             <Card>
-              <CardContent className='p-8 gap-y-4 grid md:grid-cols-3 '>
+              <CardContent className='p-8 gap-y-4 grid md:grid-cols-3'>
                 <img
                   src={image}
                   alt={title}
