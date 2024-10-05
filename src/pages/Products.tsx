@@ -4,10 +4,12 @@ import { type LoaderFunction } from 'react-router-dom';
 
 const url = '/products';
 
-export const loader: LoaderFunction = async (): Promise<ProductResponse> => {
-  const response = await customFetch<ProductResponse>(url);
-  console.log(response)
-  return { ...response.data };
+export const loader: LoaderFunction = async ({request}): Promise<ProductResponse> => {
+  const params = Object.fromEntries([
+    ...new URL(request.url).searchParams.entries(),
+  ]);
+  const response = await customFetch<ProductResponse>(url, {params});
+  return { ...response.data,  params};
 };
 
 const Products = () => {
