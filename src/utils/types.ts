@@ -33,3 +33,15 @@ export type Product = {
     pageSize: number;
     total: number;
   };
+
+  export type Params = {
+    search?:string,
+    category?: string;
+    company?: string;
+    order?: string;
+    price?: string;
+    shipping?: string;
+    page?: number;
+  }
+
+  export type ProductResponseWithParams = ProductResponse & {params: Params}
