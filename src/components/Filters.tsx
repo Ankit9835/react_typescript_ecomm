@@ -5,6 +5,8 @@ import { Button } from './ui/button';
 import { type ProductResponseWithParams } from '../utils';
 import FormInput from './FormInput';
 import FormSelect from './FormSelect';
+import FormRange from './FormRange';
+import { FormCheckBox } from '.';
 
 
 function Filters() {
@@ -35,7 +37,9 @@ function Filters() {
         defaultValue={order}
       />
       
+      <FormRange name='price' label='price' defaultValue={price} />
 
+      <FormCheckBox name='shipping' label='shipping' defaultValue={shipping} />
 
       <Button type='submit' size='sm' className='self-end mb-2'>
         search
