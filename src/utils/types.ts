@@ -26,6 +26,11 @@ export type Product = {
     companies: string[];
     pagination: Pagination;
   };
+
+  export type SingleProductResponse = {
+    data:Product[],
+    meta:{}
+  }
   
   export type Pagination = {
     page: number;
