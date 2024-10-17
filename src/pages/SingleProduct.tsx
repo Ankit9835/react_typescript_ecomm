@@ -12,6 +12,8 @@ import { Separator } from '@/components/ui/separator';
 
 import { type LoaderFunction } from 'react-router-dom';
 import { SelectProductAmount, SelectProductColor } from '../components';
+import { Mode } from '../components/SelectProductAmount';
+
 
 export const loader: LoaderFunction = async ({ params }): Promise<SingleProductResponse> => {
   const response = await customFetch<SingleProductResponse>(`products/${params.id}`)
@@ -25,6 +27,8 @@ const SingleProduct = () => {
   const dollarsAmount = formatAsDollars(price);
   const [productColor, setProductColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
+
+ 
 
   const addToCart = () => {
     console.log('add to cart')
@@ -58,7 +62,7 @@ const SingleProduct = () => {
           {/* COLORS */}
           <SelectProductColor colors={colors} productColor={productColor} setProductColor={setProductColor}/>
           {/* AMOUNT */}
-          <SelectProductAmount />
+          <SelectProductAmount mode={Mode.SingleProduct} amount={amount} setAmount={setAmount} />
           {/* CART BUTTON */}
           <Button size='lg' className='mt-10' onClick={addToCart}>
             Add to bag
