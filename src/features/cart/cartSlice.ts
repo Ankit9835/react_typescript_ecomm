@@ -34,7 +34,7 @@ const cartSlice = createSlice({
           // state.orderTotal = state.cartTotal + state.shipping + state.tax;
           // localStorage.setItem('cart', JSON.stringify(state));
           cartSlice.caseReducers.calculateTotals(state);
-          toast({ description: 'Item added to cart' });
+          //toast({ description: 'Item added to cart' });
     },
     clearCart: () => {
 
