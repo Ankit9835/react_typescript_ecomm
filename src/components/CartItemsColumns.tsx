@@ -29,14 +29,14 @@ export const SecondColumn = ({title, company, productColor}: {title:string,compa
     )
 }
 
-export const ThirdColumn = ({amount,cartid}: {amount:number, cartId:string}) => {
+export const ThirdColumn = ({cartId,amount}: {cartId:string,amount:number}) => {
     const dispatch = useAppDispatch()
     const removeItemFromCart = () => {
-        dispatch(removeItem(cartid))
+        dispatch(removeItem(cartId))
     }
 
     const setAmount = (value:number) => {
-        dispatch(editItem(cartid,amount:value))
+        dispatch(editItem({cartId,amount:value}))
     }
 
     return (

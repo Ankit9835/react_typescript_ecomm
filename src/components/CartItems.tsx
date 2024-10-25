@@ -17,7 +17,7 @@ const CartItems = () => {
           >
             <FirstColumn title={title} image={image}/>
             <SecondColumn title={title} company={company} productColor={productColor}/>
-            <ThirdColumn />
+            <ThirdColumn amount={amount} cartId={cartID}/>
             <FourthColumn price={price}/>
           </Card>
         )
