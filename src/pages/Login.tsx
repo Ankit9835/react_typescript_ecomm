@@ -14,10 +14,25 @@ import { type ReduxStore } from '@/store';
 import { loginUser } from '@/features/user/userSlice';
 import { useAppDispatch } from '@/hooks';
 import { AxiosResponse } from 'axios';
+import { useDispatch } from 'react-redux';
 
 function Login() {
-  const loginAsGuestUser = () => {
-    console.log('test')
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const loginAsGuestUser = async (): Promise<void> => {
+    try {
+      const response = await customFetch.post('auth/local', {
+        identifier: 'test@test.com',
+        password: 'secret',
+      })
+      const username = response.data.user.username
+      console.log(username)
+      const jwt = response.data.jwt;
+      dispatch(loginUser({username, jwt}))
+      navigate('/')
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <section className='h-screen grid place-items-center'>

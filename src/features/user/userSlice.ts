@@ -27,7 +27,7 @@ const userSlice = createSlice({
       const user = action.payload
       state.user = user
       localStorage.setItem('user', JSON.stringify(user))
-      if(user.username === 'default user'){
+      if(user.username === 'demo user'){
         console.log('welcome default guest')
         return
       }
@@ -38,5 +38,7 @@ const userSlice = createSlice({
     }
   },
 });
+
+export const { loginUser, logOutUser } = userSlice.actions;
 
 export default userSlice.reducer;
