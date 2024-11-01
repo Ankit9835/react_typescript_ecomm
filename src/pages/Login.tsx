@@ -16,6 +16,26 @@ import { useAppDispatch } from '@/hooks';
 import { AxiosResponse } from 'axios';
 import { useDispatch } from 'react-redux';
 
+export const action = (store: ReduxStore): ActionFunction => 
+  async({request}): Promise<Response | null> => {
+    const formData = await request.formData()
+    const data = await Object.fromEntries(formData)
+    try {
+      const response: AxiosResponse = await customFetch.post(
+        '/auth/local',
+        data
+      );
+      const username = response.data.user.username;
+      const jwt = response.data.jwt;
+      store.dispatch(loginUser({ username, jwt }));
+      return redirect('/');
+    } catch (error) {
+       console.log('login error',error);
+     // toast({ description: 'Login Failed' });
+      return null;
+    }
+  }
+
 function Login() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -26,7 +46,6 @@ function Login() {
         password: 'secret',
       })
       const username = response.data.user.username
-      console.log(username)
       const jwt = response.data.jwt;
       dispatch(loginUser({username, jwt}))
       navigate('/')
