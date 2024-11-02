@@ -5,7 +5,7 @@ import { CartItems, SectionTitle } from '../components';
 import CartTotal from '../components/CartTotal';
 
 function Cart() {
-  const user = null
+  const user = useAppSelector((state) => state.userState.user)
   const numInCart = useAppSelector((state) => state.cartState.numInCart)
 
   if(numInCart === 0){

@@ -69,4 +69,13 @@ export type Product = {
     orderTotal: number;
   };
 
+  export type Checkout = {
+    name: string;
+    address: string;
+    chargeTotal: number;
+    orderTotal: string;
+    cartItems: CartItem[];
+    numItemsInCart: number;
+  };
+
   export type ProductResponseWithParams = ProductResponse & {params: Params}
