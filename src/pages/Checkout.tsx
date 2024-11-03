@@ -1,4 +1,3 @@
-import React from 'react'
 import { useAppSelector } from '@/hooks';
 import { CheckoutForm, SectionTitle, CartTotal } from '@/components';
 import { LoaderFunction, redirect } from 'react-router-dom';
